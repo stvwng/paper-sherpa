@@ -11,6 +11,7 @@ import warnings
 from tqdm import tqdm
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from IPython import display
+import typing
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -23,7 +24,7 @@ attention_filename = "attention_paper.pdf"
 # create data directory if it doesn't exist
 os.makedirs("data", exist_ok=True) #TODO move to Orchestrator
 
-def get_paper_from_url(url=attention_url, filename=attention_filename, directory="data"):
+def get_paper_from_url(url: str = attention_url, filename: str = attention_filename, directory: str = "data") -> None:
     filepath = os.path.join(directory, filename)
     response = requests.get(url)
     if response.status_code == 200:
@@ -32,9 +33,14 @@ def get_paper_from_url(url=attention_url, filename=attention_filename, directory
         print(f"File downloaded successfully: {filepath}")
     else:
         print(f"Failed to download file, status code: {response.status_code}")
+        
+def generate_filename():
+    pass
+
+
     
     
 # display pdf
 # display.IFrame(filepath, width=1000, height=600)
 
-get_paper_from_url()
+get_paper_from_url(url='https://arxiv.org/pdf/2410.03348', filename="dolphin_paper.pdf")
