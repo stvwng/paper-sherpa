@@ -43,4 +43,4 @@ def generate_filename():
 # display pdf
 # display.IFrame(filepath, width=1000, height=600)
 
-get_paper_from_url(url='https://arxiv.org/pdf/2410.03348', filename="dolphin_paper.pdf")
+get_paper_from_url(url='https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf', filename="illusion_of_thinking.pdf")
